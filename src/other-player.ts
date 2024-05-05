@@ -8,7 +8,7 @@ export class OtherPlayer extends Actor {
             pos: vec(x, y),
             width: 16,
             height: 16,
-            color: Color.Red
+            color: Color.Red,
         })
 
         const sprite = TinyDungeonSpriteSheet.getSprite(1, 8).clone();

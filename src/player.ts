@@ -1,4 +1,4 @@
-import { Actor, Color, Engine, Keys, Vector, vec } from "excalibur";
+import { Actor, CollisionType, Color, Engine, Keys, Vector, vec } from "excalibur";
 import { Network } from "./network";
 import { TinyDungeonSpriteSheet } from "./resources";
 
@@ -10,7 +10,8 @@ export class Player extends Actor {
             pos: vec(50, 50),
             width: 16,
             height: 16,
-            color: Color.Red
+            color: Color.Red,
+            collisionType: CollisionType.Active
         });
 
         this.graphics.use(TinyDungeonSpriteSheet.getSprite(1, 8));

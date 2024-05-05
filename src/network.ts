@@ -87,6 +87,12 @@ export class Network {
         this.mrClient.connect(true);
     }
 
+    updateType(player: Player) {
+        if (!this.joined) return;
+
+        this.mrClient.call('UpdateType', { type: player.type });
+    }
+
     updatePosition(player: Player) {
         if (!this.joined) return;
 

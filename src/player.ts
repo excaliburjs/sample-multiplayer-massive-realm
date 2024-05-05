@@ -3,6 +3,7 @@ import { Network } from "./network";
 
 
 export class Player extends Actor {
+    public type = 0;
     constructor(private network: Network) {
         super({
             pos: vec(400, 400),

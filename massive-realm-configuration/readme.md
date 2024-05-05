@@ -21,7 +21,7 @@ Server section defines server processing
 
 ```javascript
 if (!$connection.vars.model) {
-    $connection.vars.model = $room.model('Player');
+    $connection.vars.model = $room.model('player'); // casing is important here
     $connection.vars.model.id = $connection.id;
 }
 

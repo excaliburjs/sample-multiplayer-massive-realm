@@ -12,6 +12,7 @@
     "excalibur": "0.29.2"
   },
   "devDependencies": {
+    "buffer": "^6.0.3",
     "parcel": "2.12.0"
   }
 }

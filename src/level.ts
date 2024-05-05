@@ -1,7 +1,8 @@
-import { Actor, Engine, EventEmitter, Scene, SceneEvents } from "excalibur";
+import { Actor, BoundingBox, Engine, EventEmitter, Scene, SceneEvents, Vector } from "excalibur";
 import { Player } from "./player";
 import { Network } from "./network";
 import { OtherPlayer } from "./other-player";
+import { Resources } from "./resources";
 
 export class Level extends Scene {
 
@@ -24,10 +25,21 @@ export class Level extends Scene {
 
     onInitialize(engine: Engine<any>): void {
         this.network.connect();
+        Resources.TiledResource.addToScene(this);
     }
 
     onJoinRoom = () => {
+        const tileLayer = Resources.TiledResource.getTileLayers('Ground')[0];
+        const tilemap = tileLayer.tilemap;
+        const tileBounds = BoundingBox.fromDimension(
+            tilemap.tileWidth * tilemap.columns,
+            tilemap.tileHeight * tilemap.rows,
+            Vector.Zero,
+            tilemap.pos);
+
         this.currentPlayer = new Player(this.network);
+        this.camera.strategy.lockToActor(this.currentPlayer);
+        this.camera.strategy.limitCameraBounds(tileBounds);
         this.add(this.currentPlayer);
         this.players.set(-1, this.currentPlayer);
         this.network.updatePosition(this.currentPlayer);

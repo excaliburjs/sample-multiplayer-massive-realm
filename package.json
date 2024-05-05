@@ -1,0 +1,17 @@
+{
+  "name": "sample-multiplayer-massive-realm",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel serve index.html"
+  },
+  "author": "Erik Onarheim",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "@excaliburjs/plugin-tiled": "0.29.2",
+    "excalibur": "0.29.2"
+  },
+  "devDependencies": {
+    "parcel": "2.12.0"
+  }
+}

@@ -19,6 +19,7 @@ export class Level extends Scene {
         this.events.on('onJoinRoom', this.onJoinRoom);
         this.events.on('playerMove', this.playerMove);
         this.events.on('playerDelete', this.playerDelete);
+        this.camera.zoom = 4;
     }
 
     onInitialize(engine: Engine<any>): void {
@@ -30,6 +31,7 @@ export class Level extends Scene {
         this.add(this.currentPlayer);
         this.players.set(-1, this.currentPlayer);
         this.network.updatePosition(this.currentPlayer);
+        this.camera.pos = this.currentPlayer.pos;
     }
 
     playerMove = ({ id, x, y }: { id: number, x: number, y: number }) =>{

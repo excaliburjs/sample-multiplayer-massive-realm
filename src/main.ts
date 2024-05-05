@@ -4,8 +4,10 @@ import { Level } from "./level";
 
 
 const game = new Engine({
-    width: 1600,
-    height: 1000,
+    width: 160 * 4,
+    height: 100 * 4,
+    pixelArt: true,
+    pixelRatio: 4,
     displayMode: DisplayMode.FitScreen,
     scenes: {
         'level': Level

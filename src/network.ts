@@ -68,9 +68,9 @@ export class Network {
                     for (let i = 0; i < data.players.length; i++) {
                         this.level.events.emit(
                             'playerMove',{
-                                id: data.player[i].id,
-                                x: data.player[i].x,
-                                y: data.player[i].y
+                                id: data.players[i].id,
+                                x: data.players[i].x,
+                                y: data.players[i].y
                             }
                         );
                     }
